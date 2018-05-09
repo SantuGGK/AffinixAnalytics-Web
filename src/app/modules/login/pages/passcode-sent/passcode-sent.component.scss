@@ -1,0 +1,12 @@
+@import '../../login.component.scss';
+.single-input {
+    width: 75% !important;
+    margin-bottom: 25px;
+}
+.single-input > div.col-xs-2 {
+    padding: 0 5px;
+}
+.single-input input {
+	text-align: center;
+	padding: 0px !important;
+}

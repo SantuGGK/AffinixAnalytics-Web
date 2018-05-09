@@ -1,0 +1,27 @@
+<form [formGroup]="loginForm"  class="col-md-5 login_form" (ngSubmit)="onLogin()">
+<h2>Sign In</h2>
+<p class="welcome-text">Welcome back!</p>
+<p class="text-danger text-left serverError" *ngIf="errorMessage"><span>{{errorMessage}}</span></p>
+<div class="form-group">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+    <input type="text" class="form-control" name="email" value="" placeholder="User Name" formControlName="username" (click)="removeMessages($event)">                                        
+    </div>
+    <app-form-error [displayError]="isFieldValid('username')" [errorMsg]= (validationMessages.email)>
+    </app-form-error>
+</div>
+<div class="form-group">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+    <input type="password" class="form-control" name="password" value="" placeholder="Password" formControlName="password" (click)="removeMessages($event)">                                        
+    </div>
+    <app-form-error [displayError]="isFieldValid('password')" [errorMsg]= (validationMessages.password)>
+    </app-form-error>
+</div>
+<div class="col-xs-12 no_padding">
+    <input type="submit" id="btn-login" class="btn btn-success" value="Log In"/>
+</div>
+<div class="col-xs-12">
+<a [routerLink]="['/forgotpassword']" class="forgot_link">Forgot Password?</a>
+</div>
+</form>

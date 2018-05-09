@@ -1,0 +1,38 @@
+<form class="col-md-5 login_form" [formGroup]="passcodeSentForm" (ngSubmit)="onPasscodeSent()">
+<h2>Enter your passcode</h2>
+<p class="col-xs-12 no_padding reset-text">To reset your password, you will need to enter the passcode that was emailed to your account.  Enter your passcode below. <span><a (click)="resendPasscode()" class="forgot_link">Resend Passcode</a></span></p>
+<p class="text-danger text-left serverError" *ngIf="errorMessage">{{errorMessage}}</p>
+<p class="text-success text-left serverError" *ngIf="successMessage">{{successMessage}}</p>
+<div class="form-group clearfix single-input">
+<div class="col-xs-2">
+      <input #codeOne type="text" id="first" (keyup)="moveToNext(codeOne.value, 'second')" maxlength="1" class="form-control" name="passcode"
+        formControlName="codeOne" autocomplete="off" (focus)="removeMessages()">
+        </div>
+      <div class="col-xs-2">
+      <input #codeTwo type="text" id="second" (keyup)="moveToNext(codeTwo.value,'third')" maxlength="1" class="form-control" name="passcode"
+        formControlName="codeTwo" autocomplete="off" (focus)="removeMessages()">
+      </div>
+      <div class="col-xs-2">
+      <input #codeThree type="text" id="third" (keyup)="moveToNext(codeThree.value, 'fourth')" maxlength="1" class="form-control"
+        name="passcode" formControlName="codeThree" autocomplete="off" (focus)="removeMessages()">
+      </div>
+      <div class="col-xs-2">
+      <input #codeFour type="text" id="fourth" (keyup)="moveToNext(codeFour.value,'fifth')" maxlength="1" class="form-control"
+        name="passcode" formControlName="codeFour" autocomplete="off" (focus)="removeMessages()">
+      </div>
+      <div class="col-xs-2">
+      <input #codeFive type="text" id="fifth" (keyup)="moveToNext(codeFive.value,'sixth')" maxlength="1" class="form-control" name="passcode"
+        formControlName="codeFive" autocomplete="off" (focus)="removeMessages()">
+      </div>
+      <div class="col-xs-2">
+      <input #codeSix type="text" id="sixth" (keyup)="moveToNext(codeSix.value, '')" maxlength="1" class="form-control" name="passcode"
+        formControlName="codeSix" autocomplete="off" (focus)="removeMessages()">
+      </div>
+</div>
+<div class="col-xs-12 no_padding">
+<input type="submit" id="btn-login" class="btn btn-success" value="Create New Password" />
+</div>
+<div class="col-xs-12">
+<a [routerLink]="['/login']" class="forgot_link">Log In</a>
+</div>
+</form>
